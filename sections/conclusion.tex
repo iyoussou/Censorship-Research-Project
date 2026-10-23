@@ -1,1 +1,18 @@
 \section{Conclusion}\label{sec:conclusion}
+
+\textbf{Goal:} We will evaluate the factuality and depth of various mainstream LLMs' responses centering recent news events, and examine how disparities in either may reflect censorship-like qualities. The factuality component inquires whether the model output is accurate to the event, while depth assesses how much relevant, verifiable detail is provided. We'll treat both as measurable properties that can differ across models, settings, and user contexts.
+
+\textbf{Scope and baseline:} We will query each model about [1 to 3] recent events [selected to span at least one politically sensitive topic and one comparatively neutral control topic, so that differences in treatment can be attributed to topic sensitivity rather than general model weakness]. For each event, we will build a ground-truth reference from formal, fact-checked publications (e.g., NYT, The Atlantic, Reuters, AP), cross-referenced to disambiguate a single outlet's framing definitions as the baseline. From these sources we can extract key facts such as: who, what, when, where, and the main contested claims. Responses can be scored against this checklist.
+
+\textbf{Models and settings:} We will test Claude, ChatGPT, Gemini, Grok, and DeepSeek. For each model we will vary (1) search access on versus off, (2) extended thinking on versus off where available, and (3) prompt content and format (e.g., neutral factual question, open-ended, etc.). All prompts will be in English. We will prompt manually through each model's web interface and log the model version, date, and settings for every query. Because outputs are non-deterministic, each prompt will be run [3 to 5] times per condition so we can report the range of responses rather than a single sample.
+
+\textbf{User approach:} To reflect realistic usage rather than ideal prompting, we will define a typical AI-user and news seeker through user personas and journey maps. Specifically, the persona will capture how this person finds news, which sources they trust, and when they turn to an LLM instead of a search engine or social feed as well as demographics data backed by the latest information on AI-usage profiles. We will then create an identical fresh account for this persona on each platform, with memory and personalization disabled for a consistent starting state. Ideally differences in output come from the models and not from account history. Our prompts will follow the persona's journey (for example, an initial question, a follow-up for detail, and a request to verify a claim).
+
+\textbf{Analysis:} We will use semantic coding to analyze AI responses. Following standard qualitative coding methods, two team members will independently code each response against a shared codebook and resolve disagreements by discussion and reporting inter-rater agreement to show reliability. The codebook will include:
+\begin{itemize}
+    \item \textbf{Factual accuracy:} each checklist claim coded as correct, incorrect, or absent.
+    \item \textbf{Depth:} the share of checklist facts covered, plus presence of context, causes, and multiple perspectives.
+    \item \textbf{Censorship indicators:} refusals, deflections, evasive generalities, or omission of facts that the baseline sources report.
+    \item \textbf{Flooding indicators:} excessive hedging, boilerplate, unrelated content, or unsupported claims that dilute the substantive answer.
+    \item \textbf{Sourcing:} whether and how the model cites sources, and whether the citations exist and support the claim.
+\end{itemize}
